@@ -43,7 +43,7 @@ int findLongestConseqSubseq(int arr[],int n ) {
 //     Return the maximum value
 
 int findLongestConseqSubseq2(int arr[],int n) {
-    priority_queue<int,vector<int>,greater<int>>pq;
+    priority_queue<int,vector<int>,greater<int>>pq; // min priority queue
     for(int i=0;i<n;i++) {
         pq.push(arr[i]);
     }
@@ -51,13 +51,16 @@ int findLongestConseqSubseq2(int arr[],int n) {
     pq.pop();
     int cnt=1,max=1;
     while(!pq.empty()) {
+        // it means this is not the consecutive sequence
         if(pq.top()-top >1) {
             cnt=1;
             top=pq.top();
             pq.pop();
+            // both elements are same
         } else  if(pq.top()==top) {
            top=pq.top();
            pq.pop();
+        // differnece is 1 between nos.  
         } else  {
             cnt++;
             top=pq.top();

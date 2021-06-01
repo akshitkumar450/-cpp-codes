@@ -16,21 +16,40 @@ void printUnion(int arr1[],int arr2[],int m,int n) {
         } else if(arr1[i]>arr2[j]) {
             cout<<arr2[j]<<" ";
         } else {
+            // means both are equal so print any of them and increment both
             cout<<arr2[j]<<" ";
             i++;
             j++;
         }
     }
+    // elements left in first array
     while(i<m) {
         cout<<arr1[i]<<" ";
         i++;
     }
+    // element left  in second array
     while(j<n) {
         cout<<arr2[j]<<" ";
         j++;
     }
 } 
 
+void printIntersection(int arr1[], int arr2[], int m, int n)
+{
+    int i = 0, j = 0;
+    while (i < m && j < n) {
+        if (arr1[i] < arr2[j])
+            i++;
+        else if (arr2[j] < arr1[i])
+            j++;
+        else /* if arr1[i] == arr2[j] */
+        { // print only when they are equal
+            cout << arr2[j] << " ";
+            i++;
+            j++;
+        }
+    }
+}
 int main() {
  int arr1[] = { 1, 2, 4, 5, 6 };
     int arr2[] = { 2, 3, 5, 7 };
