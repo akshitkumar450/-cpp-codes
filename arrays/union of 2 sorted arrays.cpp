@@ -15,6 +15,7 @@ void printUnion(int arr1[],int arr2[],int m,int n) {
             i++;
         } else if(arr1[i]>arr2[j]) {
             cout<<arr2[j]<<" ";
+            j++;
         } else {
             // means both are equal so print any of them and increment both
             cout<<arr2[j]<<" ";

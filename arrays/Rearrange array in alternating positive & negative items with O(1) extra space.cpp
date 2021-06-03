@@ -25,8 +25,11 @@ void rearrange(int arr[],int n) {
                 j--;
         }
     }
+    // after this while loops end i will point to the first negative element 
+    // if i==0 measns is in starting and all elements are negative and if i==n means all elements are positve
+    // no needs for swapping in these cases 
 
-    if(i==0 && i==n) {
+    if(i==0 || i==n) {
         	for(int i=0;i<n;i++) {
 	         cout<<arr[i]<<" ";
     	}

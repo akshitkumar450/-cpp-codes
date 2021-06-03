@@ -7,14 +7,18 @@ int findMinDiff(int arr[],int n,int m){
     if(m>n){
         return -1;
     }
-    int minDiff=INT_MAX;
-    for(int i=0;i+m-1<n;i++){
-        int diff=arr[i+m-1]-arr[i];
-        if(diff<minDiff) {
-            minDiff=diff;
+    int ans=INT_MAX;
+    for(int i=0;i<n-m;i++){
+        // sliding window concept
+        int minw=arr[i];
+        int maxw=arr[i+m-1];
+        int gap=maxw-minw;
+        if(gap<ans) {
+        ans=gap;
         }
     }
-    return minDiff;
+    return ans;
+
 }
 
 int main() {

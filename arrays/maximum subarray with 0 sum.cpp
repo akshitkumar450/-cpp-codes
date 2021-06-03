@@ -26,7 +26,7 @@ int maxLen2(int arr[],int n){
 
         if (sum == 0)
             max_len = i + 1;
-            // if the sum exists ,check when it was seen last in the hashmap and put in the hashmap
+            // if the sum exists ,check when it was seen last in the hashmap and if not then  put in the hashmap
         if(mp.find(sum)!=mp.end()){
             maxlen=max(maxlen,i-mp[sum]);
         } else {

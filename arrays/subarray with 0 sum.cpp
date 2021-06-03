@@ -14,7 +14,8 @@ bool subArrayExists(int arr[],int n){
             // if sum is not present ,then push it 
             st.insert(sum);
         }
-    } return false;
+    }
+     return false;
 }
 
 int main() {
