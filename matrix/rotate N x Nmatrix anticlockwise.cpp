@@ -2,6 +2,8 @@
 #include <algorithm>
 using namespace std;
 
+// anticlockwise
+
 void rotate(int arr[][100],int m) {
     // reverse each row
       for(int i=0;i<m;i++) {
