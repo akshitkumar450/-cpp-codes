@@ -262,14 +262,16 @@ node* mergeSort(node*head){
 bool hasCycle(node *head) {
         node* slow=head;
         node* fast=head;
+        // means list has cycle
         while(fast!=NULL and fast->next!=NULL){
             fast=fast->next->next;
             slow=slow->next;
-            
+            // if both ptrs point to same ,,at that point they have cycle
             if(fast==slow){
                 return true;
             }
         }
+        // if does not have cycle fast will reach null
         return false;
 }
 
