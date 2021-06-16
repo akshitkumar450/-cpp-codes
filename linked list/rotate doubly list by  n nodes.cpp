@@ -5,7 +5,7 @@ node* reverseByN(node*head,int n){
     node*temp=head;
     int cnt=0;
     // move till the node from where we have to rotate
-    while(cnt<=n and temp!=NULL){
+    while(cnt<n-1 and temp!=NULL){
         temp=temp->next;
         cnt++;
     }
@@ -16,9 +16,12 @@ node* reverseByN(node*head,int n){
         temp=temp->next;
     }
     // change the pointer
+    // join the last pointer with first node
     temp->next=head;
     head->prev=temp;
+    // make new head
     head=nthNode->next;
     head->prev=NULL;
     nthNode->next=NULL;
+    return head;
 }
