@@ -12,6 +12,37 @@ bool isSorted(int arr[],int n){
     }
 }
 
+bool isSorted(int si, int arr[], int n) {
+	//BASE CASE
+	if (si == n - 1 or n == 0) {
+		return true;
+	}
+
+	//RECURSIVE CASE
+	bool isSubproblemSorted = isSorted(si + 1, arr, n);
+
+	if (arr[si] <= arr[si + 1] and isSubproblemSorted) {
+		return true;
+	} else {
+		return false;
+	}
+
+	//RECURSIVE CASE
+	// if (arr[si] > arr[si + 1]) {
+	// 	return false;
+
+	// } else {
+	// 	// check for the rest of the array
+	// 	bool isSubproblemSorted = isSorted(si + 1, arr, n);
+	// 	// if (isSubproblemSorted) {
+	// 	// 	return true;
+	// 	// } else {
+	// 	// 	return false;
+	// 	// }
+	// 	return isSubproblemSorted;
+	// }
+}
+
 int main() {
     int n;
     cin>>n;
