@@ -16,39 +16,42 @@ Node* reverse(Node*head){
     }
     return prev;
 }
-    struct Node* addTwoLists(struct Node* first, struct Node* second)
-    {
-        // code here
-            first=reverse(first);
-    second=reverse(second);
-    Node*temp;
-    // for storing the sum list
-    Node*res=NULL;
-    // for iterating sum list
-    Node*cur=NULL;
-    int sum=0;
-    int carry=0;
-    while(first!=NULL or second!=NULL){
-        sum=carry+(first?first->data:0)+(second?second->data:0);
-        carry=(sum>=10)?1:0;
-        sum=sum%10;
-        temp=new Node(sum);
-        if(res==NULL){
-            res=temp;
-            cur=temp;
-        } else{
+    struct Node* addTwoLists(struct Node* first, struct Node* second) {
+        first=reverse(first);
+        second=reverse(second);
+        // for storing the sum list
+        // create a dummy node to avoid NULL check
+        Node*res=new Node(-1);
+        // for iterating sum list
+        Node*cur=res;
+        int carry=0;
+        while(first!=NULL or second!=NULL or carry!=0){
+            // sum will be initialized to 0 in each iteration
+            int sum=0;
+            // add first list data
+            if(first!=NULL) {
+                sum=sum+first->data;
+                first=first->next;
+            }
+            // add second list data
+            if(second!=NULL) {
+                sum=sum+second->data;
+                second=second->next;
+            }
+            // add carry
+            sum=sum+carry;
+            // create digit to be added in list
+            int lastDigit=sum%10;
+            // make carry
+            carry=sum/10;
+            // make new node 
+            Node* temp=new Node(lastDigit);
+            // point to new node
             cur->next=temp;
-            cur=temp;
+            // move to next
+            cur=cur->next;
         }
-        if(first )first=first->next;
-        if(second) second=second->next;
-    }
-    if(carry>0){
-        temp=new Node(carry);
-        cur->next=temp;
-        cur=temp;
-    }
-    res=reverse(res);
-    return res;
+        res=reverse(res->next);
+        return res;
     }
 };

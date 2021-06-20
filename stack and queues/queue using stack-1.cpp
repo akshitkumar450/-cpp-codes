@@ -23,7 +23,8 @@ int StackQueue :: pop(){
                 s2.push(val);
             }
         }
-      
+    //   after transfering all from s1 to s2
+    // front in queue will be at top of s2
         int x=s2.top();
         s2.pop();
         return x;        

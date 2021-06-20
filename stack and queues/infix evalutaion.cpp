@@ -31,6 +31,7 @@ int infix(string str){
             //  if ) pop till we find ( and solve the expression
 
             while(oprtors.top()!='('){
+                // value at top be second and below that will be first 
                 int val2=oprnds.top(); oprnds.pop();
                 int val1=oprnds.top(); oprnds.pop();
                 char ch=oprtors.top(); oprtors.pop();
@@ -46,6 +47,7 @@ int infix(string str){
         } else if(str[i]=='+' || str[i]=='-' || str[i]=='*' ||  str[i]=='/' ){
             while(!oprtors.empty() && oprtors.top()!='(' 
                         && precedence(str[i])<=precedence(oprtors.top())) {
+                           // value at top be second and below that will be first 
                              int val2=oprnds.top(); oprnds.pop();
                             int val1=oprnds.top(); oprnds.pop();
                             char ch=oprtors.top(); oprtors.pop();
@@ -60,23 +62,19 @@ int infix(string str){
     // at last if elements are there 
     // at end operators stack should be empty
     while(!oprtors.empty()){
-         int val2=oprnds.top(); oprnds.pop();
-        int val1=oprnds.top(); oprnds.pop();
-        char ch=oprtors.top(); oprtors.pop();
+            // value at top be second and below that will be first 
+            int val2=oprnds.top(); oprnds.pop();
+            int val1=oprnds.top(); oprnds.pop();
+            char ch=oprtors.top(); oprtors.pop();
 
-        int ans=operation(val1,val2,ch);
-        // after solving push it back to operands
-        oprnds.push(ans);
+            int ans=operation(val1,val2,ch);
+            // after solving push it back to operands
+            oprnds.push(ans);
     }
     // at end answer will be at top of operands stack
     return oprnds.top();
 }
 
-
-
-
 int main() {
    cout<< infix(" (2+4) * (4+6)");
-
-   
 }

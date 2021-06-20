@@ -1,3 +1,9 @@
+class SortedStack{
+public:
+	stack<int> s;
+	void sort();
+};
+
 void SortedStack(){
    stack<int>s2;
    while(!s.empty()){

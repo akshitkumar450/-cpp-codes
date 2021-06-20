@@ -65,7 +65,7 @@ void infix(string str){
     }
     // at last if elements are there 
     // at end operators stack should be empty
-    while(!oprtors.empty()){
+    while(!oprtors.empty)
            char op=oprtors.top(); oprtors.pop();
             string post2=postfix.top(); postfix.pop();
             string post1=postfix.top(); postfix.pop();
