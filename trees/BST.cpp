@@ -82,3 +82,5 @@ int main(){
     root=insert(root);
     inOrder(root);
 }
+
+// 8 5 7 6 3 12 10 14 -1
