@@ -10,6 +10,7 @@ void leafpath(TreeNode*root,vector<int>ans){
         return;
     }
     // push data when reached to node
+    // it also means that we have travelled a valid path from root to leaf so print it
     ans.push_back(root->data);
     if(root->left==NULL and root->right==NULL){
        display(ans);
