@@ -4,7 +4,7 @@ class DiaHeight{
         int diameter;
         int height;
 };
-
+// counting edges
 DiaHeight diameterOptimized(TreeNode* root){
         DiaHeight val;
         
