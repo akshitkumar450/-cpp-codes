@@ -24,13 +24,15 @@ class Solution {
         solve(root->right,head,prev,first);
     }
     
-    Node * bToDLL(Node *root)
-    {
-        // your code here
-        Node*head=NULL;
-        Node*prev=NULL;
+    Node * bToDLL(Node *root) {
+        Node*head=NULL; // to store the head of the list
+        Node*prev=NULL; // used to traverse the list and making pointers with previous node
+        // to check the first node in inorder traversal and make it head of the list
         int first=0;
         solve(root,head,prev,first);
         return head;
     }
 };
+
+// the head should be the first node in inorder traversal of the binary tree
+// left and right on tree should be used as prev and next of list

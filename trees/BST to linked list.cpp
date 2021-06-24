@@ -69,6 +69,7 @@ listPair BSTtoList(TreeNode*root){
 
     // if we have only left
     if(root->left!=NULL and root->right==NULL){
+        // go to the left most node make it head
         listPair leftPair=BSTtoList(root->left);
         // connect tail to root
         leftPair.tail->right=root;
@@ -78,8 +79,9 @@ listPair BSTtoList(TreeNode*root){
     }
     // if we have only right
     if(root->left==NULL and root->right!=NULL){
+        // go to the right most node make it tail
         listPair rightPair=BSTtoList(root->right);
-
+        // connect root to head
         root->right=rightPair.head;
         val.head=root;
         val.tail=rightPair.tail;
@@ -87,6 +89,8 @@ listPair BSTtoList(TreeNode*root){
     }
     // if we both have left and right
     if(root->left!=NULL and root->right!=NULL){
+        // go to the left most node make it head
+        // go to the right most node make it tail
         listPair leftPair=BSTtoList(root->left);
         listPair rightPair=BSTtoList(root->right);
 
