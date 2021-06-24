@@ -10,13 +10,16 @@ public:
     }
     
     bool isMirror(TreeNode* p,TreeNode* q){
-        
+        // if both are null then true
         if(p==NULL and q==NULL){
             return true;
         }
+        // if any one of the tree is NULL then false
         if(p==NULL or q==NULL){
             return false;
         }
+        // check if both tree root values are same or not
+        // if same then only check for left and right
         if(p->val!=q->val){
             return false;
         }
