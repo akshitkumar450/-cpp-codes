@@ -32,3 +32,37 @@ class Solution{
         return root;
     }
 };
+
+
+
+
+class Solution{
+    public:
+    Node* buildTree(int in[],int pre[], int n)
+    {
+        int preIndex=0;
+        Node* ans=buildFromInorderPreOrder(pre,in,0,n-1,preIndex);
+        return ans;
+    }
+      
+    Node* buildFromInorderPreOrder(int pre[],int in[],int start,int end,int&preIndex){
+        if(start>end){
+            return NULL;
+        }
+        int data=pre[preIndex];
+        Node*root=new Node(data);
+        int mid;
+        for(int i=start;i<=end;i++){
+            if(in[i]==data){
+                mid=i;
+                break;
+            }
+        }
+    
+        preIndex++;
+        // left first and then right
+        root->left=buildFromInorderPreOrder(pre,in,start,mid-1,preIndex);
+        root->right=buildFromInorderPreOrder(pre,in,mid+1,end,preIndex);
+        return root;
+    }
+};
