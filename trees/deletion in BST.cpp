@@ -17,12 +17,16 @@ public:
             // with 1 child
             // left child is there
             if(root->left!=NULL and root->right==NULL){
+                // store the left pointer and delete the current pointer 
+                // and return the stored pointer
                 TreeNode* temp=root->left;
                 delete root;
                 return temp;
             }
             // right child is there
             if(root->left==NULL and root->right!=NULL){
+                // store the right pointer and delete the current pointer
+                // and return the stored pointer
                 TreeNode* temp=root->right;
                 delete root;
                 return temp;
@@ -34,6 +38,7 @@ public:
             while(replace->left!=NULL){
                 replace=replace->left;
             }
+            // replace the data of the inorder successor to root data and delete inorder successor
             root->val=replace->val;
             root->right=deleteNode(root->right,replace->val);
             return root;
