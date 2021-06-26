@@ -20,7 +20,7 @@ public:
           if(!root){
             return 0;
         }
-        // max element will be left most node
+        // min element will be left most node
         while(root->left!=NULL){
             root=root->left;
         }
