@@ -16,6 +16,25 @@ void maxSumSubarray(int arr[],int n) {
     cout<<"maximum sum "<<maxSum;
 }
 
+// second approach
+int maxSubarraySum(int arr[], int n){
+    int maxSum=arr[0];
+    int curSum=arr[0];
+    for(int i=1;i<n;i++){
+        // we have two options only 
+        // whether to include the new number to previous sum
+        int continueWithArray=curSum+arr[i];
+        // or not to include it and start it as a new 
+        int newArray=arr[i];
+        // cursum will max of both
+        curSum=max(continueWithArray,newArray);
+        if(curSum>maxSum){
+            maxSum=curSum;
+        }
+    }
+    return maxSum;
+        
+}
 
 int main() {
          int n;
